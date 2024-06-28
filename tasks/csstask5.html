@@ -5,6 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Styled Page</title>
     <link rel="stylesheet" href="\tasks\style1.css">
+    <style>
+              /* Reset default margin and padding for the body */
+        body {
+          margin: 0;
+          font-family: 'Arial', sans-serif;
+         background-color: #D8DF2A; /* Light yellow-green background */
+        }
+
+/* Container to hold the sidebar and main content */
+.container {
+    display: flex; /* Use flexbox to layout the sidebar and main content */
+}
+
+/* Style for the side navigation bar */
+.sidenav {
+    width: 150px; /* Fixed width for the sidebar */
+    background-color: #333; /* Dark background color */
+    padding: 10px; /* Padding inside the sidebar */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+/* Style for each navigation link */
+.nav-link {
+    display: block; /* Make each link a block element */
+    color: white; /* White text color */
+    padding: 10px; /* Padding inside each link */
+    margin-bottom: 10px; /* Space between links */
+    background-color: #fff; /* White background for the text area */
+    text-decoration: none; /* Remove underline from links */
+    color: #000; /* Black text color */
+    font-weight: bold; /* Bold text */
+    border-right: 15px solid #000; /* Black right border for design */
+}
+
+/* Hover effect for navigation links */
+.nav-link:hover {
+    background-color: #ccc; /* Light grey background on hover */
+}
+
+/* Style for the main content area */
+.main-content {
+    flex: 1; /* Take up the remaining space */
+    padding: 20px; /* Padding inside the main content */
+}
+
+/* Style for the main heading */
+.main-content h1 {
+    color: #800080; /* Purple text color */
+    font-size: 2em; /* Larger font size */
+    margin-top: 0; /* No top margin */
+}
+
+/* Style for paragraphs in the main content */
+.main-content p {
+    font-size: 1.2em; /* Slightly larger font size */
+    margin-bottom: 1em; /* Space below each paragraph */
+}
+
+/* Style for the horizontal rule */
+hr {
+    border: 1px dashed #800080; /* Purple dashed line */
+    margin: 20px 0; /* Space around the line */
+}
+
+/* Style for the italicized text */
+em {
+    color: #800080; /* Purple text color */
+}
+    </style>
 </head>
 <body>
     <div class="container">
