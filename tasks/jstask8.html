@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #fff, #e2e2e2);
+            text-align: center;
+        }
+        .container {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        input, textarea, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <div class="container">
+        <form id="registrationForm">
+            <label>First Name:</label>
+            <input type="text" id="firstName">
+            <span class="error" id="firstNameError">POOR</span>
+
+            <label>Last Name:</label>
+            <input type="text" id="lastName">
+            <span class="error" id="lastNameError">POOR</span>
+
+            <label>Email:</label>
+            <input type="email" id="email">
+            <span class="error" id="emailError">POOR</span>
+
+            <label>Password:</label>
+            <input type="password" id="password">
+            <span class="error" id="passwordError">POOR</span>
+
+            <label>Re-enter Password:</label>
+            <input type="password" id="confirmPassword">
+            <span class="error" id="confirmPasswordError">POOR OR MISMATCH</span>
+
+            <label>Gender:</label>
+            <input type="radio" name="gender" value="male" id="male"> Male
+            <input type="radio" name="gender" value="female" id="female"> Female
+            <span class="error" id="genderError">POOR</span>
+
+            <label>Age:</label>
+            <input type="number" id="age">
+            <span class="error" id="ageError">POOR</span>
+
+            <label>Phone Number:</label>
+            <input type="text" id="phoneNumber">
+            <span class="error" id="phoneNumberError">POOR</span>
+
+            <label>Address:</label>
+            <textarea id="address"></textarea>
+            <span class="error" id="addressError">POOR</span>
+
+            <label>State:</label>
+            <input type="text" id="state">
+            <span class="error" id="stateError">POOR</span>
+
+            <label>Country:</label>
+            <select id="country">
+                <option value="">Choose your country</option>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <!-- Add more countries as needed -->
+            </select>
+            <span class="error" id="countryError">POOR</span>
+
+            <label>Languages known:</label>
+            <input type="checkbox" value="English" id="english"> English
+            <input type="checkbox" value="Kannada" id="kannada"> Kannada
+            <input type="checkbox" value="Hindi" id="hindi"> Hindi
+            <input type="checkbox" value="Telugu" id="telugu"> Telugu
+            <span class="error" id="languageError">POOR</span>
+
+            <input type="checkbox" id="declaration"> Hereby I declare all the given details are true
+            <span class="error" id="declarationError">POOR</span>
+
+            <button type="button" onclick="validateForm()">REGISTER</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            let valid = true;
+
+            // Reset all error messages
+            document.querySelectorAll('.error').forEach(function(error) {
+                error.style.display = 'none';
+            });
+
+            // Validate First Name
+            const firstName = document.getElementById('firstName').value;
+            if (firstName === '') {
+                document.getElementById('firstNameError').style.display = 'block';
+                valid = false;
+            }
+
+            // Validate Last Name
+            const lastName = document.getElementById('lastName').value;
+            if (lastName === '') {
+                document.getElementById('lastNameError').style.display = 'block';
+                valid = false;
+            }
+
+            // Validate Email
+            const email = document.getElementById('email').value;
+            if (email === '') {
+                document.getElementById('emailError').style.display = 'block';
+                valid = false;
+            }
+
+            // Validate Password
+            const password = document.getElementById('password').value;
+            if (password === '') {
+                document.getElementById('passwordError').style.display = 'block';
+                valid = false;
+            }
+
+            // Validate Confirm Password
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (confirmPassword === '' || confirmPassword !== password) {
+                document.getElementById('confirmPasswordError').style.display = 'block';
+                valid = false;
+            }
+
+            // Validate Gender
+            if (!document.getElementById('male').checked && !document.getElementById('female').checked) {
+                document.getElementById('genderError').style.display = 'block';
+                valid = false;
+            }
+
+            // Validate Age
+            const age = document.getElementById('age').value;
+            if (age === '') {
+                document.getElementById('ageError').style.display = 'block';
+                valid = false;
+            }
+
+            // Validate Phone Number
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            if (phoneNumber === '') {
+                document.getElementById('phoneNumberError').style.display = 'block';
+                valid = false;
+            }
+
+            // Validate Address
+            const address = document.getElementById('address').value;
+            if (address === '') {
+                document.getElementById('addressError').style.display = 'block';
+                valid = false;
+            }
+
+            // Validate State
+            const state = document.getElementById('state').value;
+            if (state === '') {
+                document.getElementById('stateError').style.display = 'block';
+                valid = false;
+            }
+
+            // Validate Country
+            const country = document.getElementById('country').value;
+            if (country === '') {
+                document.getElementById('countryError').style.display = 'block';
+                valid = false;
+            }
+
+            // Validate Languages known
+            if (!document.getElementById('english').checked &&
+                !document.getElementById('kannada').checked &&
+                !document.getElementById('hindi').checked &&
+                !document.getElementById('telugu').checked) {
+                document.getElementById('languageError').style.display = 'block';
+                valid = false;
+            }
+
+            // Validate Declaration
+            if (!document.getElementById('declaration').checked) {
+                document.getElementById('declarationError').style.display = 'block';
+                valid = false;
+            }
+
+            // If valid, submit the form
+            if (valid) {
+                alert('Form submitted successfully!');
+                document.getElementById('registrationForm').reset();
+            }
+        }
+    </script>
+</body>
+</html>

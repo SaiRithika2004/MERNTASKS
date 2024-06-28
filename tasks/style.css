@@ -1,0 +1,46 @@
+/* Reset default margin and padding for the body */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style for the side navigation bar */
+.sidenav {
+    height: 100%;        /* Full-height: 100% */
+    width: 60px;         /* Fixed width */
+    position: fixed;     /* Fixed position */
+    top: 0;              /* Align to the top */
+    left: 0;             /* Align to the left */
+    background-color: #f1f1f1; /* Light grey background */
+    display: flex;       /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center items horizontally */
+    padding-top: 20px;   /* Padding at the top */
+}
+
+/* Common style for each sidenav button */
+.sidenav-btn {
+    width: 40px;          /* Fixed width */
+    height: 40px;         /* Fixed height */
+    margin: 10px 0;       /* Margin above and below */
+    display: block;       /* Make each button a block element */
+    border-radius: 5px;   /* Rounded corners */
+    transition: margin-left 0.3s; /* Smooth transition for margin-left */
+}
+
+/* Hover effect for sidenav buttons */
+.sidenav-btn:hover {
+    margin-left: 20px;    /* Move right when hovered */
+}
+
+/* Individual background colors for each button */
+.green { background-color: green; }
+.blue { background-color: blue; }
+.red { background-color: red; }
+.gray { background-color: gray; }
+
+/* Style for the main content area */
+.main {
+    margin-left: 60px;    /* Offset for the width of the sidenav */
+    padding: 16px;        /* Padding around the content */
+}
