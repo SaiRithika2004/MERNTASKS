@@ -31,7 +31,82 @@
         <input type="submit" value="Submit">
     </form>
 
-    <script src="C:\Users\rithi\OneDrive\Desktop\javascript\validation.js"></script>
+    <script>
+        
+function validateForm() {
+    // Initialize a boolean variable to check overall form validity
+    let isValid = true;
+
+    // Get input fields
+    let name = document.getElementById('name');
+    let email = document.getElementById('email');
+    let website = document.getElementById('website');
+    let message = document.getElementById('message');
+
+    // Get error span elements
+    let nameError = document.getElementById('nameError');
+    let emailError = document.getElementById('emailError');
+    let websiteError = document.getElementById('websiteError');
+    let messageError = document.getElementById('messageError');
+
+    // Reset error messages
+    nameError.innerHTML = '';
+    emailError.innerHTML = '';
+    websiteError.innerHTML = '';
+    messageError.innerHTML = '';
+
+    // Remove previous error styles
+    name.classList.remove('error-input');
+    email.classList.remove('error-input');
+    website.classList.remove('error-input');
+    message.classList.remove('error-input');
+
+    // Name validation
+    if (name.value.trim() === '') {
+        nameError.innerHTML = 'This field is required';
+        name.classList.add('error-input');
+        isValid = false;
+    }
+
+    // Email validation
+    if (email.value.trim() === '') {
+        emailError.innerHTML = 'A valid email address is required';
+        email.classList.add('error-input');
+        isValid = false;
+    } else {
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email.value.trim())) {
+            emailError.innerHTML = 'A valid email address is required';
+            email.classList.add('error-input');
+            isValid = false;
+        }
+    }
+
+    // Website validation
+    if (website.value.trim() === '') {
+        websiteError.innerHTML = 'A valid url is required';
+        website.classList.add('error-input');
+        isValid = false;
+    } else {
+        let urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
+        if (!urlPattern.test(website.value.trim())) {
+            websiteError.innerHTML = 'A valid url is required';
+            website.classList.add('error-input');
+            isValid = false;
+        }
+    }
+
+    // Message validation
+    if (message.value.trim() === '') {
+        messageError.innerHTML = 'This field is required';
+        message.classList.add('error-input');
+        isValid = false;
+    }
+
+    // Prevent form submission if validation fails
+    return isValid;
+}
+    </script>
 
 </body>
 </html>

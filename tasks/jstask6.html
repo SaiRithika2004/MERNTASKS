@@ -28,6 +28,25 @@
             Don't have an account? <a href="#" class="signup-link">Sign up here.</a>
         </div>
     </div>
-    <script src="C:\Users\rithi\OneDrive\Desktop\javascript\validation1.js"></script>
+    <script>
+        function validateForm() {
+    let username = document.getElementById('username');
+    let password = document.getElementById('password');
+    let valid = true;
+
+    // Basic validation for empty fields
+    if (username.value.trim() === '') {
+        alert('Please enter your username.');
+        valid = false;
+    }
+
+    if (password.value.trim() === '') {
+        alert('Please enter your password.');
+        valid = false;
+    }
+
+    return valid;
+}
+    </script>
 </body>
 </html>
